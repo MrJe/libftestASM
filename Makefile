@@ -6,7 +6,7 @@
 #    By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/22 13:17:05 by jmichaud         ###   ########.fr        #
+#    Updated: 2019/05/22 16:57:33 by jmichaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ OBJS			=	$(addprefix $(OBJ_DIR), $(OBJ_NAME))
 
 all				:	$(NAME)
 
-$(NAME)			:	$(OBJ_DIR) $(OBJS)
+$(NAME)			:	$(OBJ_DIR) $(OBJS) ../libfts.a
 	$(CC) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(OBJ_DIR)		:
