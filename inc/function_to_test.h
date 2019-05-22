@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   function_to_test.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:54:06 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 16:50:03 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/22 18:24:37 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,18 @@
 # define FUNCTION_TO_TEST_H
 
 int					test_bzero(void);
+int                 test_isalnum(void);
+int                 test_isalpha(void);
+int                 test_isascii(void);
+int                 test_isdigit(void);
+int                 test_islower(void);
+int                 test_isupper(void);
+int                 test_tolower(void);
+int                 test_toupper(void);
+int                 test_isprint(void);
+            
+int		            test_strlen(void);
+int		            test_strcat(void);
+int		            test_puts(void);
 
 #endif

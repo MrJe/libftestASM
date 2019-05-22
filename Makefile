@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+         #
+#    By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/22 16:57:33 by jmichaud         ###   ########.fr        #
+#    Updated: 2019/05/22 18:49:00 by gpoblon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC_NAME		=	\
 					launch_tests.c		\
 					catch_signal.c		\
 					test_bzero.c		\
+					test_isalnum.c		\
 					main.c
 
 ################################################################################
