@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 12:57:45 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 18:43:14 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/22 18:56:25 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # define ERROR		-1
 # define TEST		"--test"
 
-extern char *g_fname;
-extern int	g_fd;
+extern char const	*g_fname;
+extern int			g_fd;
 
 typedef struct		s_unit_test
 {
