@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_isalnum.c                                     :+:      :+:    :+:   */
+/*   test_isalpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 13:14:30 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/23 13:14:16 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int	test_x(void)
 
 	while (i < 256)
 	{
-		ft_ret = ft_isalnum(i);
-		sys_ret = isalnum(i);
+		ft_ret = ft_isalpha(i);
+		sys_ret = isalpha(i);
 		if (ft_ret != sys_ret)
 			return (fperr("value = |%d|; _ft: |%d|; sys: |%d|\n",
 				i, ft_ret, sys_ret));
@@ -39,7 +39,7 @@ static int	test_0(void)
 	return (test_x());
 }
 
-int			test_isalnum(void)
+int			test_isalpha(void)
 {
 	int		(*f_tab[])(void) = {
 		test_0,

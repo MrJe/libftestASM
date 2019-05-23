@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libftASM.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 12:29:19 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 16:54:55 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/23 14:40:52 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTASM_H
 # define LIBFTASM_H
 
-# include <strings.h>
+#include <strings.h>
 
 /*
 ** Part 1
@@ -45,5 +45,8 @@ void		ft_cat(int fd);
 /*
 ** Bonus part
 */
+int			ft_isupper(int c);
+int			ft_islower(int c);
+int			ft_isspace(int c);
 
 #endif

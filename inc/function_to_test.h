@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:54:06 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 18:24:37 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/23 13:22:39 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int                 test_isupper(void);
 int                 test_tolower(void);
 int                 test_toupper(void);
 int                 test_isprint(void);
+int                 test_isspace(void);
             
 int		            test_strlen(void);
 int		            test_strcat(void);

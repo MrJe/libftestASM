@@ -6,12 +6,16 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 12:57:45 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 18:56:25 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/23 14:40:54 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_TEST_H
 # define LIBUNIT_TEST_H
+
+#include <stdio.h>
+#include <stdarg.h>
+
 
 # define SUCCESS	0
 # define FAILURE	1
@@ -19,7 +23,7 @@
 # define TEST		"--test"
 
 extern char const	*g_fname;
-extern int			g_fd;
+extern FILE			*g_fstream;
 
 typedef struct		s_unit_test
 {
@@ -30,6 +34,7 @@ typedef struct		s_unit_test
 /*
 ** print.c
 */
+int					fperr(const char *str, ...);
 void				print_usage(void);
 void				print_header(void);
 void				print_results(int ok, int total);

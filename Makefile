@@ -6,7 +6,7 @@
 #    By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/22 18:52:54 by jmichaud         ###   ########.fr        #
+#    Updated: 2019/05/23 14:35:06 by gpoblon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ NAME			=	libftASM_tester
 INC_DIR			=	./inc/
 SRC_DIR			=	./src/
 OBJ_DIR			=	./obj/
+TRACE			=	../trace
 
 SRC_NAME		=	\
 					testception.c		\
@@ -26,6 +27,16 @@ SRC_NAME		=	\
 					catch_signal.c		\
 					test_bzero.c		\
 					test_isalnum.c		\
+					test_isalpha.c		\
+					test_isascii.c		\
+					test_isdigit.c		\
+					test_isprint.c		\
+					test_strlen.c		\
+					test_tolower.c		\
+					test_toupper.c		\
+					test_isspace.c		\
+					test_islower.c		\
+					test_isupper.c		\
 					main.c
 
 ################################################################################
@@ -54,6 +65,7 @@ all				:	$(NAME)
 
 $(NAME)			:	$(OBJ_DIR) $(OBJS) ../libfts.a
 	$(CC) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
+	touch $(TRACE)
 
 $(OBJ_DIR)		:
 	@mkdir -p $(dir $(OBJS))
@@ -62,6 +74,7 @@ $(OBJ_DIR)%.o	:	$(SRC_DIR)%.$(EXT) Makefile | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD $(CPPFLAGS) -c $< -o $@
 
 clean			:
+	rm -rf $(TRACE)
 	@if [ -e $(OBJ_DIR) ]; then \
 		rm -rf $(OBJ_DIR); \
 		printf "rm -rf $(OBJ_DIR)\n"; \
@@ -70,6 +83,7 @@ clean			:
 	fi;
 
 fclean			:	clean
+	rm -rf $(TRACE)
 	rm -f $(NAME)
 
 re				:	fclean

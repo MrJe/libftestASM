@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 17:09:33 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 14:33:20 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/23 13:00:14 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 #include "unit_test.h"
 #include <stdio.h>
 #include <stdlib.h> // system()
+
+int			fperr(const char *str, ...)
+{
+	va_list	args;
+
+	va_start(args, str);
+	fprintf(g_fstream, "(%s) ", g_fname);
+	fprintf(g_fstream, str, args);
+	va_end(args);
+	return (FAILURE);
+}
 
 void		print_usage(void)
 {
