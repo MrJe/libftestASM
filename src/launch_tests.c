@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 17:31:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 13:14:17 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/23 17:10:27 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			fork_test(int (*unit_test)(void))
 	}
 	if (father == 0)
 	{
-		ualarm(2000000, 0);
+		ualarm(5000000, 0);
 		exit((*unit_test)());
 	}
 	return (ERROR);

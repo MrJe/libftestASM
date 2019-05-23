@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:54 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 14:34:22 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/23 17:05:14 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void		launch_real_test(void)
 		{"ft_toupper", &test_toupper},
 		{"ft_tolower", &test_tolower},
 		{"ft_puts   ", &test_bzero},
-		{"ft_strlen ", &test_bzero},
+		{"ft_strlen ", &test_strlen},
 		{"ft_memset ", &test_bzero},
 		{"ft_memcpy ", &test_bzero},
 		{"ft_strdup ", &test_bzero},
@@ -97,6 +97,6 @@ int				main(int argc, char const *argv[])
 		launch_testception();
 	else
 		print_usage();
-	fclose(g_fstream);	
+	fclose(g_fstream);
 	return (0);
 }
