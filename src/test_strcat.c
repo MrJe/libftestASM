@@ -9,14 +9,17 @@ static int	test(char *s1, char const *s2)
 {
 	char	sys_ret[TAB_SIZE];
 	char	ft_ret[TAB_SIZE];
+	char	*sys_s;
+	char	*ft_s;
 
-	strcpy(sys_ret, s1);
 	strcpy(ft_ret, s1);
-	strcat(sys_ret, s2);
-	ft_strcat(ft_ret, s2);
-	if (strcmp(ft_ret, sys_ret) != 0)
+	strcpy(sys_ret, s1);
+	ft_s = ft_strcat(ft_ret, s2);
+	sys_s = strcat(sys_ret, s2);
+	if (strcmp(ft_s, sys_s) != 0 || strcmp(ft_ret, sys_ret) != 0 ||
+		strcmp(ft_ret, ft_s) != 0)
 		return (fperr("_ft: |%s|; sys: |%s|\n",
-						ft_ret, sys_ret));
+						ft_s, sys_s));
 	return (SUCCESS);
 }
 
