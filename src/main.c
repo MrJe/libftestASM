@@ -50,7 +50,7 @@ static void		launch_real_test(void)
 {
 	t_unit_test const	f_tab[] = {
 		{"ft_bzero  ", &test_bzero},
-		{"ft_strcat ", &test_bzero},
+		{"ft_strcat ", &test_strcat},
 		{"ft_isalnum", &test_isalnum},
 		{"ft_isalpha", &test_isalpha},
 		{"ft_isascii", &test_isascii},

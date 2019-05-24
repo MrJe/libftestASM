@@ -26,6 +26,7 @@ SRC_NAME		=	\
 					launch_tests.c		\
 					catch_signal.c		\
 					test_bzero.c		\
+					test_strcat.c		\
 					test_isalnum.c		\
 					test_isalpha.c		\
 					test_isascii.c		\
