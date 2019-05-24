@@ -13,57 +13,67 @@
 #include "unit_test.h"
 #include "libftASM.h"
 #include <string.h>
-#include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
-static int	test_x(char *s)
+static int	test(char *s)
 {
 	size_t	ft_ret = 1;
 	size_t	sys_ret = strlen(s);
 	if (s && ft_ret != sys_ret)
-		return(fperr("value: %s; _ft: %lu; sys: %lu\n", s, ft_ret, sys_ret));
-	if (s)
-		free(s);
+		return(fperr("value: %s; _ft: %lu; sys: %lu\n",
+					s, ft_ret, sys_ret));
 	return (SUCCESS);
 }
 
-static int	test_0(void)
+static int	test_a(void)
 {
-	return (test_x(strdup("")));
+	return (test(""));
 }
 
-static int	test_1(void)
+static int	test_b(void)
 {
-	return (test_x(strdup("c")));
+	return (test("c"));
 }
 
-static int	test_2(void)
+static int	test_c(void)
 {
-	return (test_x(strdup("coucou comment vas tu ? longer size")));
+	return (test("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis euismod sapien. Sed id felis arcu. Aenean nunc dolor, volutpat vitae felis non, finibus dictum metus. Duis non mi quis purus varius sodales vitae at sem. Praesent vel ante semper, imperdiet augue sed, mattis tortor. Praesent elementum lacinia purus. Nunc convallis turpis ornare viverra faucibus."));
 }
 
-static int	test_3(void)
+static int	test_d(void)
 {
-	return (test_x(strdup("ひらがな unicode")));
+	return (test("ひらがな unicode"));
 }
 
-static int	test_4(void)
+static int	test_e(void)
 {
-	char *s = malloc(__INT_MAX__);
-	memset(s, 'a', __INT_MAX__);
-	s[__INT_MAX__ - 1] = '\0';
-	return(test_x(s));
+	char	*s;
+	int		ret;
+
+	s = malloc(INT_MAX);
+	memset(s, 'a', INT_MAX);
+	s[INT_MAX - 1] = '\0';
+	ret = test(s);
+	free(s);
+	return (ret);
+}
+
+static int	test_f(void)
+{
+	return (test("\t\n\r\t _isspace_\n"));
 }
 
 int			test_strlen(void)
 {
 	int		(*f_tab[])(void) = {
-		test_0,
-		test_1,
-		test_2,
-		test_3,
-		test_4,
+		test_a,
+		test_b,
+		test_c,
+		test_d,
+		test_e,
+		test_f,
 		0
 	};
 

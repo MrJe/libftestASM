@@ -15,34 +15,52 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <limits.h>
 
-static int	test_x(void)
+static int	test(int n)
 {
-	int	i = -1;
-	int sys_ret;
-	int	ft_ret;
+	int		sys_ret;
+	int		ft_ret;
 
-	while (i < 256)
-	{
-		ft_ret = ft_isascii(i);
-		sys_ret = isascii(i);
-		if (ft_ret != sys_ret)
-			return (fperr("value = |%d|; _ft: |%d|; sys: |%d|\n",
-				i, ft_ret, sys_ret));
-		++i;
-	}
+	ft_ret = ft_isascii(n);
+	sys_ret = isascii(n);
+	if (ft_ret != sys_ret)
+		return (fperr("value = |%d|; _ft: |%d|; sys: |%d|\n",
+						n, ft_ret, sys_ret));
 	return (SUCCESS);
 }
 
-static int	test_0(void)
+static int	test_a(void)
 {
-	return (test_x());
+	int		i;
+	int		ret;
+
+	ret = SUCCESS;
+	i = -11;
+	while (++i < 257)
+	{
+			if(test(i) == FAILURE)
+				ret = FAILURE;
+	}
+	return (ret);
+}
+
+static int	test_b(void)
+{
+	return (test(INT_MAX));
+}
+
+static int	test_c(void)
+{
+	return (test(INT_MIN));
 }
 
 int			test_isascii(void)
 {
 	int		(*f_tab[])(void) = {
-		test_0,
+		test_a,
+		test_b,
+		test_c,
 		0
 	};
 

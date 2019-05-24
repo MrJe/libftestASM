@@ -15,7 +15,7 @@
 #include <string.h>
 
 #define CHAR_SET 'x'
-#define TAB_SIZE 10
+#define TAB_SIZE 101
 
 static int	check_memory(char *mem, int size)
 {
