@@ -23,11 +23,11 @@ static int	check_memory(char *mem, int size)
 
 	i = -1;
 	while (++i < size)
-		if (*mem != '\0')
+		if (mem[i] != '\0')
 			return (FAILURE);
 	--i;
 	while (++i < TAB_SIZE)
-		if (*mem != CHAR_SET)
+		if (mem[i] != CHAR_SET)
 			return (FAILURE);
 	return (SUCCESS);
 }
