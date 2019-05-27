@@ -58,7 +58,7 @@ static void		launch_real_test(void)
 		{"ft_isdigit", &test_isdigit},
 		{"ft_toupper", &test_toupper},
 		{"ft_tolower", &test_tolower},
-		{"ft_puts   ", &test_bzero},
+		{"ft_puts   ", &test_puts},
 		{"ft_strlen ", &test_strlen},
 		{"ft_memset ", &test_bzero},
 		{"ft_memcpy ", &test_bzero},

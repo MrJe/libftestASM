@@ -16,7 +16,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-
 # define SUCCESS	0
 # define FAILURE	1
 # define ERROR		-1

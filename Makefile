@@ -38,6 +38,7 @@ SRC_NAME		=	\
 					test_isspace.c		\
 					test_islower.c		\
 					test_isupper.c		\
+					test_puts.c			\
 					main.c
 
 ################################################################################

@@ -47,7 +47,7 @@ void		print_results(int ok, int total)
 
 void		print_name(char const *name)
 {
-	printf("%s%s%s :", BLUE, name, RESET);
+	printf("%s%s%s:", BLUE, name, RESET);
 	fflush(stdout);
 }
 

@@ -19,8 +19,11 @@
 
 static int	test(char *s)
 {
-	size_t	ft_ret = 1;
-	size_t	sys_ret = strlen(s);
+	size_t	ft_ret;
+	size_t	sys_ret;
+
+	ft_ret = ft_strlen(s);
+	sys_ret = strlen(s);
 	if (s && ft_ret != sys_ret)
 		return(fperr("value: %s; _ft: %lu; sys: %lu\n",
 					s, ft_ret, sys_ret));
@@ -49,14 +52,17 @@ static int	test_d(void)
 
 static int	test_e(void)
 {
-	char	*s;
+	char	s[10000];
+//	char	*s;
 	int		ret;
 
-	s = malloc(INT_MAX);
-	memset(s, 'a', INT_MAX);
-	s[INT_MAX - 1] = '\0';
+//	s = malloc(INT_MAX);
+//	memset(s, 'a', INT_MAX);
+//	s[INT_MAX - 1] = '\0';
+	memset(s, 'a', 10000);
+	s[9999] = '\0';
 	ret = test(s);
-	free(s);
+//	free(s);
 	return (ret);
 }
 
