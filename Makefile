@@ -40,6 +40,7 @@ SRC_NAME		=	\
 					test_puts.c			\
 					test_strlen.c		\
 					test_memset.c		\
+					test_memcpy.c		\
 					main.c
 
 ################################################################################

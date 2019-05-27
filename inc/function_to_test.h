@@ -26,6 +26,7 @@ int					test_puts(void);
 
 int					test_strlen(void);
 int					test_memset(void);
+int					test_memcpy(void);
 
 
 int					test_isspace(void);
