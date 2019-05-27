@@ -32,13 +32,14 @@ SRC_NAME		=	\
 					test_isascii.c		\
 					test_isdigit.c		\
 					test_isprint.c		\
-					test_strlen.c		\
 					test_tolower.c		\
 					test_toupper.c		\
 					test_isspace.c		\
 					test_islower.c		\
 					test_isupper.c		\
 					test_puts.c			\
+					test_strlen.c		\
+					test_memset.c		\
 					main.c
 
 ################################################################################

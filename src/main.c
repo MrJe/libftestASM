@@ -60,7 +60,7 @@ static void		launch_real_test(void)
 		{"ft_tolower", &test_tolower},
 		{"ft_puts   ", &test_puts},
 		{"ft_strlen ", &test_strlen},
-		{"ft_memset ", &test_bzero},
+		{"ft_memset ", &test_memset},
 		{"ft_memcpy ", &test_bzero},
 		{"ft_strdup ", &test_bzero},
 		{"ft_cat    ", &test_bzero},

@@ -24,11 +24,11 @@ static int	test(char const *s)
 
 	int	save_out = dup(STDOUT_FILENO);
 	close(STDOUT_FILENO);
-	printf("\n%s: ", g_fname);
-	fflush(stdout);
+//	printf("\n%s: ", g_fname);
+//	fflush(stdout);
 	ft_ret = ft_puts(s);
-	printf("puts      : ");
-	fflush(stdout);
+//	printf("puts      : ");
+//	fflush(stdout);
 	sys_ret = puts(s);
 	dup2(save_out, STDOUT_FILENO);
 	if (sys_ret != ft_ret && (ft_ret == 0 || sys_ret == 0))
