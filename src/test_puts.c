@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_bzero.c                                       :+:      :+:    :+:   */
+/*   test_puts.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 16:51:16 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/27 13:33:57 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static int	test(char const *s)
 						s, ft_ret, sys_ret));
 	return (SUCCESS);
 }
+
 static int	test_0(void)
 {
 	return (test(NULL));
@@ -38,7 +39,12 @@ static int	test_0(void)
 
 static int	test_1(void)
 {
-	return (test("a b c d e f g h i j k l m n o p q r s t u v w x y z"));
+	return (test("Pas de retour ligne"));
+}
+
+static int	test_2(void)
+{
+	return (test("ajout d'un retour a la ligne\n"));
 }
 
 int			test_puts(void)
@@ -46,6 +52,7 @@ int			test_puts(void)
 	int		(*f_tab[])(void) = {
 		test_0,
 		test_1,
+		test_2,
 		0
 	};
 

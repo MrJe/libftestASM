@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 17:09:33 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 17:49:06 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/27 13:32:07 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			fperr(const char *str, ...)
 
 	va_start(args, str);
 	fprintf(g_fstream, "(%s) ", g_fname);
-	fprintf(g_fstream, str, args);
+	vfprintf(g_fstream, str, args);
 	va_end(args);
 	return (FAILURE);
 }
