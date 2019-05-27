@@ -62,7 +62,7 @@ static void		launch_real_test(void)
 		{"ft_strlen ", &test_strlen},
 		{"ft_memset ", &test_memset},
 		{"ft_memcpy ", &test_memcpy},
-		{"ft_strdup ", &test_bzero},
+		{"ft_strdup ", &test_strdup},
 		{"ft_cat    ", &test_bzero},
 		{"ft_isspace", &test_isspace},
 		{"ft_islower", &test_islower},

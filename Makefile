@@ -41,6 +41,7 @@ SRC_NAME		=	\
 					test_strlen.c		\
 					test_memset.c		\
 					test_memcpy.c		\
+					test_strdup.c		\
 					main.c
 
 ################################################################################
