@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/27 13:33:57 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/27 15:54:43 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 #include "libftASM.h"
 #include <string.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 static int	test(char const *s)
 {
 	int		ft_ret;
 	int		sys_ret;
 
+	int	save_out = dup(STDOUT_FILENO);
+	close(STDOUT_FILENO);
 	printf("\n%s: ", g_fname);
 	fflush(stdout);
 	ft_ret = ft_puts(s);
 	printf("puts      : ");
 	fflush(stdout);
 	sys_ret = puts(s);
-	if (ft_ret != sys_ret)
+	dup2(save_out, STDOUT_FILENO);
+	if (sys_ret != ft_ret && (ft_ret == 0 || sys_ret == 0))
 		return (fperr("value: %s; _ft: |%d|; sys: |%d|\n",
 						s, ft_ret, sys_ret));
 	return (SUCCESS);
