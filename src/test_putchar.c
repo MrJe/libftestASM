@@ -1,79 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_memset.c                                      :+:      :+:    :+:   */
+/*   test_putchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 17:47:51 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/27 15:54:43 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unit_test.h"
 #include "libftASM.h"
-#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-static int	test(void *b, int c, size_t len)
+static int	test(int s)
 {
-	char	*ft_ret;
-	char	*sys_ret;
+	int		ft_ret;
+	int		sys_ret;
 
-	ft_ret = strndup(b, len);
-	sys_ret = memset(b, c, len);
-	if ((ft_ret != ft_memset(ft_ret, c, len)) ||
-		(memcmp(ft_ret, sys_ret, len) != 0))
-	{
-		free(ft_ret);
-		return(fperr("value: %s; _ft: %s; sys: %s\n",
-					b, ft_ret, sys_ret));
-	}
-	free(ft_ret);
+	int	save_out = dup(STDOUT_FILENO);
+	close(STDOUT_FILENO);
+	ft_ret = ft_putchar(s);
+	sys_ret = putchar(s);
+	dup2(save_out, STDOUT_FILENO);
+	if (sys_ret != ft_ret)
+		return (fperr("value: %d; _ft: |%d|; sys: |%d|\n",
+						s, ft_ret, sys_ret));
 	return (SUCCESS);
 }
 
 static int	test_a(void)
 {
-	return (test("", 'a', 0));
-}
+	int		i;
+	int		ret;
 
+	ret = SUCCESS;
+	i = 31;
+	while (++i < 127)
+		if (test(i) == FAILURE)
+			ret = FAILURE;
+	return (ret);
+}
+/*
 static int	test_b(void)
 {
-	char	str[100] = "Hello World!";
-
-	return (test(str, 'a', 100));
+	return (test(INT_MAX));
 }
 
 static int	test_c(void)
 {
-	char	str[100] = "\t\n\r\f _isspace_\n";
-
-	return (test(str, '\0', 100));
+	return (test(INT_MIN));
 }
-
-static int	test_d(void)
-{
-	char	str[100] = "\t\n\r\f _isspace_\n";
-
-	return (test(str, '\0', 5));
-}
-
-static int	test_e(void)
-{
-	char	str[100] = { 0 };
-
-	return (test(str, 'a', 42));
-}
-
-int			test_memset(void)
+*/
+int			test_putchar(void)
 {
 	int		(*f_tab[])(void) = {
 		test_a,
-		test_b,
-		test_c,
-		test_d,
-		test_e,
+//		test_b,
+//		test_c,
 		0
 	};
 

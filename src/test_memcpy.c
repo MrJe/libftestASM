@@ -12,10 +12,8 @@
 
 #include "unit_test.h"
 #include "libftASM.h"
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <limits.h>
 
 static int	test(void *src,  size_t n)
 {

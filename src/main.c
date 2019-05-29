@@ -67,6 +67,7 @@ static void		launch_real_test(void)
 		{"ft_isspace", &test_isspace},
 		{"ft_islower", &test_islower},
 		{"ft_isupper", &test_isupper},
+		{"ft_putchar", &test_putchar},
 		{0, 0}
 	};
 
