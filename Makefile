@@ -6,7 +6,7 @@
 #    By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/29 17:17:49 by gpoblon          ###   ########.fr        #
+#    Updated: 2019/05/29 17:31:41 by gpoblon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRC_NAME		=	\
 ################################################################################
 EXT				=	c
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	#-Wall -Wextra -Werror
 CPPFLAGS		=	-I$(INC_DIR)
 
 LDFLAGS			=	-L../

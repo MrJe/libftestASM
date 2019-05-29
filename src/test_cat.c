@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 17:17:36 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/29 18:34:21 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	test(char const *s)
 		return (fperr("FD ERROR (fd_ref=%d, fd_ft=%d)\n", fd_ref, fd_ft));
 	save_out = dup2(fd_ft, STDOUT_FILENO);
 	ft_cat(fd_ref);
+	dup2(save_out, STDOUT_FILENO);
 	if (cmp_files(fd_ref, fd_ft))
 		return (fperr("file to check: |%s|\n", s));
-	dup2(save_out, STDOUT_FILENO);
 	close(fd_ref);
 	close(fd_ft);
 	return (SUCCESS);

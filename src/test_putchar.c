@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 17:15:43 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/29 18:31:57 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-static int	test(int s)
+static int	test(int c)
 {
 	int		ft_ret;
 	int		sys_ret;
@@ -29,14 +29,19 @@ static int	test(int s)
 	fd_ft = open("test_file_stdout", O_RDWR | O_TRUNC | O_CREAT, 0666);
 	if (fd_ref < 0 || fd_ft < 0)
 		return (fperr("FD ERROR (fd_ref=%d, fd_ft=%d)\n", fd_ref, fd_ft));
+
 	save_out = dup2(fd_ft, STDOUT_FILENO);
-	ft_ret = ft_putchar(s);
-	sys_ret = putchar(s);
+	ft_ret = ft_putchar(c);
+	dup2(save_out, STDOUT_FILENO);
+	save_out = dup2(fd_ref, STDOUT_FILENO);
+	sys_ret = putchar(c);
+	fflush(NULL);
+	dup2(save_out, STDOUT_FILENO);
+
 	if (sys_ret != ft_ret)
-		return (fperr("value: %d; _ft: |%d|; sys: |%d|\n", s, ft_ret, sys_ret));
+		return (fperr("value: %d; _ft: |%d|; sys: |%d|\n", c, ft_ret, sys_ret));
 	if (cmp_files(fd_ref, fd_ft))
 		return (fperr("return value is fine but char not well printed, see test_file_*\n"));
-	dup2(save_out, STDOUT_FILENO);
 	close(fd_ref);
 	close(fd_ft);
 	return (SUCCESS);
