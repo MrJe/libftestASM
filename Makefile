@@ -43,6 +43,7 @@ SRC_NAME		=	\
 					test_memcpy.c		\
 					test_strdup.c		\
 					test_putchar.c		\
+					test_abs.c			\
 					main.c
 
 ################################################################################

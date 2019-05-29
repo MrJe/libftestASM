@@ -33,5 +33,6 @@ int			test_isspace(void);
 int			test_islower(void);
 int			test_isupper(void);
 int			test_putchar(void);
+int			test_abs(void);
 
 #endif
