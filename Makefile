@@ -6,7 +6,7 @@
 #    By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/29 16:05:38 by gpoblon          ###   ########.fr        #
+#    Updated: 2019/05/29 17:17:49 by gpoblon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ TRACE			=	../trace
 SRC_NAME		=	\
 					testception.c		\
 					print.c				\
+					utils.c				\
 					launch_tests.c		\
 					catch_signal.c		\
 					test_bzero.c		\
@@ -42,6 +43,7 @@ SRC_NAME		=	\
 					test_memset.c		\
 					test_memcpy.c		\
 					test_strdup.c		\
+					test_cat.c			\
 					test_putchar.c		\
 					test_abs.c			\
 					main.c
@@ -72,7 +74,7 @@ all				:	$(NAME)
 
 $(NAME)			:	$(OBJ_DIR) $(OBJS) ../libfts.a
 	$(CC) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
-	touch $(TRACE) ../test_cat
+	touch $(TRACE)
 
 $(OBJ_DIR)		:
 	@mkdir -p $(dir $(OBJS))
@@ -81,7 +83,7 @@ $(OBJ_DIR)%.o	:	$(SRC_DIR)%.$(EXT) Makefile | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD $(CPPFLAGS) -c $< -o $@
 
 clean			:
-	rm -rf $(TRACE) ../test_cat
+	rm -rf $(TRACE) ../test_file_*
 	@if [ -e $(OBJ_DIR) ]; then \
 		rm -rf $(OBJ_DIR); \
 		printf "rm -rf $(OBJ_DIR)\n"; \
@@ -90,7 +92,7 @@ clean			:
 	fi;
 
 fclean			:	clean
-	rm -rf $(TRACE) ../test_cat
+	rm -rf $(TRACE) ../test_file_*
 	rm -f $(NAME)
 
 re				:	fclean

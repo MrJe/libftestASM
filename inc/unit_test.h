@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 12:57:45 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 14:40:54 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/29 16:39:35 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define FAILURE	1
 # define ERROR		-1
 # define TEST		"--test"
+# define BUFF_SIZE	1024
 
 extern char const	*g_fname;
 extern FILE			*g_fstream;
@@ -52,5 +53,10 @@ int					testception_ok(void);
 int					testception_ko(void);
 int					testception_signal(void);
 int					launch_tests(int (*unit_test[])(void));
+
+/*
+** utils.c
+*/
+int					cmp_files(int fd1, int fd2);
 
 #endif
