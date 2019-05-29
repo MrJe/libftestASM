@@ -18,8 +18,8 @@ int	cmp_files(int fd1, int fd2)
 {
 	ssize_t	f1_ret = 0;
 	ssize_t	f2_ret = 0;
-	char	*f1_buff[BUFF_SIZE + 1];
-	char	*f2_buff[BUFF_SIZE + 1];
+	char	f1_buff[BUFF_SIZE + 1];
+	char	f2_buff[BUFF_SIZE + 1];
 
 	bzero(f1_buff, BUFF_SIZE + 1);
 	bzero(f2_buff, BUFF_SIZE + 1);
