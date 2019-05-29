@@ -14,6 +14,7 @@
 #include "libftASM.h"
 #include <ctype.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 
 static int	test(int n)
@@ -21,8 +22,8 @@ static int	test(int n)
 	int		sys_ret;
 	int		ft_ret;
 
-	ft_ret = ft_isalpha(n);
-	sys_ret = isalpha(n);
+	ft_ret = ft_abs(n);
+	sys_ret = abs(n);
 	if (ft_ret != sys_ret)
 		return (fperr("value = |%d|; _ft: |%d|; sys: |%d|\n",
 						n, ft_ret, sys_ret));
@@ -35,7 +36,7 @@ static int	test_a(void)
 	int		ret;
 
 	ret = SUCCESS;
-	i = -11;
+	i = -257;
 	while (++i < 257)
 	{
 			if(test(i) == FAILURE)
@@ -54,7 +55,7 @@ static int	test_c(void)
 	return (test(INT_MIN));
 }
 
-int			test_isalpha(void)
+int			test_abs(void)
 {
 	int		(*f_tab[])(void) = {
 		test_a,

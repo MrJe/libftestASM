@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:54 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 13:13:48 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/29 16:05:26 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static void		launch_real_test(void)
 		{"ft_isspace", &test_isspace},
 		{"ft_islower", &test_islower},
 		{"ft_isupper", &test_isupper},
-		{"ft_cat    ", &test_cat},
+		{"ft_putchar", &test_putchar},
+		{"ft_abs    ", &test_abs},
 		{0, 0}
 	};
 

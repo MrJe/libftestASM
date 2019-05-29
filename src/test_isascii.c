@@ -12,7 +12,6 @@
 
 #include "unit_test.h"
 #include "libftASM.h"
-#include <string.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <limits.h>

@@ -40,22 +40,22 @@ static int	test(int size)
 	ft_bzero(&mem, size);
 	return (check_memory(mem, size));
 }
-static int	test_0(void)
+static int	test_a(void)
 {
 	return (test(TAB_SIZE));
 }
 
-static int	test_1(void)
+static int	test_b(void)
 {
 	return (test(TAB_SIZE - TAB_SIZE));
 }
 
-static int	test_2(void)
+static int	test_c(void)
 {
 	return (test(TAB_SIZE - (TAB_SIZE / 2)));
 }
 
-static int	test_3(void)
+static int	test_d(void)
 {
 	return (test(TAB_SIZE - 1));
 }
@@ -63,10 +63,10 @@ static int	test_3(void)
 int			test_bzero(void)
 {
 	int		(*f_tab[])(void) = {
-		test_0,
-		test_1,
-		test_2,
-		test_3,
+		test_a,
+		test_b,
+		test_c,
+		test_d,
 		0
 	};
 
