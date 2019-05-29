@@ -18,9 +18,11 @@ int	cmp_files(int fd1, int fd2)
 {
 	ssize_t	f1_ret = 0;
 	ssize_t	f2_ret = 0;
-	char	*f1_buff[BUFF_SIZE];
-	char	*f2_buff[BUFF_SIZE];
+	char	f1_buff[BUFF_SIZE + 1];
+	char	f2_buff[BUFF_SIZE + 1];
 
+	bzero(f1_buff, BUFF_SIZE + 1);
+	bzero(f2_buff, BUFF_SIZE + 1);
 	while ((f1_ret = read(fd1, f1_buff, BUFF_SIZE)) >= 0 &&
 		(f2_ret = read(fd2, f2_buff, BUFF_SIZE)) >= 0)
 	{
@@ -28,6 +30,8 @@ int	cmp_files(int fd1, int fd2)
 			return (FAILURE);
 		if (f1_ret == 0 && f2_ret == 0)
 			return (SUCCESS);
+		bzero(f1_buff, BUFF_SIZE + 1);
+		bzero(f2_buff, BUFF_SIZE + 1);
 	}
 	return (FAILURE);
 }

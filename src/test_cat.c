@@ -37,27 +37,34 @@ static int	test(char const *s)
 	return (SUCCESS);
 }
 
-static int	test_0(void)
+static int	test_a(void)
 {
-	return (test("main.c"));
+	return (test("libfts.a"));
 }
 
-static int	test_1(void)
+static int	test_b(void)
 {
 	return (test("Makefile"));
 }
 
-static int	test_2(void)
+static int	test_c(void)
 {
 	return (test("/dev/null"));
+}
+
+static int	test_d(void)
+{
+	ft_cat(-42);
+	return (SUCCESS);
 }
 
 int			test_cat(void)
 {
 	int		(*f_tab[])(void) = {
-		test_0,
-		test_1,
-		test_2,
+		test_a,
+		test_b,
+		test_c,
+		test_d,
 		0
 	};
 
