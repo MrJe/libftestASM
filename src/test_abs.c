@@ -36,7 +36,7 @@ static int	test_a(void)
 	int		ret;
 
 	ret = SUCCESS;
-	i = -11;
+	i = -257;
 	while (++i < 257)
 	{
 			if(test(i) == FAILURE)
