@@ -6,7 +6,7 @@
 #    By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/23 14:35:06 by gpoblon          ###   ########.fr        #
+#    Updated: 2019/05/29 15:08:50 by gpoblon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC_NAME		=	\
 					test_memset.c		\
 					test_memcpy.c		\
 					test_strdup.c		\
+					test_cat.c			\
 					main.c
 
 ################################################################################
@@ -70,7 +71,7 @@ all				:	$(NAME)
 
 $(NAME)			:	$(OBJ_DIR) $(OBJS) ../libfts.a
 	$(CC) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
-	touch $(TRACE)
+	touch $(TRACE) ../test_cat
 
 $(OBJ_DIR)		:
 	@mkdir -p $(dir $(OBJS))
@@ -79,7 +80,7 @@ $(OBJ_DIR)%.o	:	$(SRC_DIR)%.$(EXT) Makefile | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -MMD $(CPPFLAGS) -c $< -o $@
 
 clean			:
-	rm -rf $(TRACE)
+	rm -rf $(TRACE) ../test_cat
 	@if [ -e $(OBJ_DIR) ]; then \
 		rm -rf $(OBJ_DIR); \
 		printf "rm -rf $(OBJ_DIR)\n"; \
@@ -88,7 +89,7 @@ clean			:
 	fi;
 
 fclean			:	clean
-	rm -rf $(TRACE)
+	rm -rf $(TRACE) ../test_cat
 	rm -f $(NAME)
 
 re				:	fclean

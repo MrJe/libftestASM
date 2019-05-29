@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 17:47:51 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/29 11:26:50 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,37 @@ static int	test_b(void)
 {
 	char	str[100] = "Hello World!";
 
-	return (test(str, 'a', 100));
+	return (test(str, 'c', 1));
 }
 
 static int	test_c(void)
 {
-	char	str[100] = "\t\n\r\f _isspace_\n";
+	char	str[100] = "Hello World!";
 
-	return (test(str, '\0', 100));
+	return (test(str, 'a', 100));
 }
 
 static int	test_d(void)
 {
 	char	str[100] = "\t\n\r\f _isspace_\n";
 
-	return (test(str, '\0', 5));
+	return (test(str, '\0', 100));
 }
 
 static int	test_e(void)
 {
+	char	str[100] = "\t\n\r\f _isspace_\n";
+
+	return (test(str, '\0', 5));
+}
+
+static int	test_f(void)
+{
 	char	str[100] = { 0 };
 
-	return (test(str, 'a', 42));
+	return (test(str, 0, 42));
 }
+
 
 int			test_memset(void)
 {
@@ -76,6 +84,7 @@ int			test_memset(void)
 		test_c,
 		test_d,
 		test_e,
+		test_f,
 		0
 	};
 

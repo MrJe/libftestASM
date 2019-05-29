@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_puts.c                                        :+:      :+:    :+:   */
+/*   test_cat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 14:58:37 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/29 16:04:13 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,58 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#define BUFF_SIZE 1024
+
+static int	cmp_files(int fd1, int fd2)
+{
+	ssize_t	f1_ret = 0;
+	ssize_t	f2_ret = 0;
+	char	*f1_buff[BUFF_SIZE];
+	char	*f2_buff[BUFF_SIZE];
+
+	while ((f1_ret = read(fd1, f1_buff, BUFF_SIZE)) >= 0 &&
+		(f2_ret = read(fd2, f2_buff, BUFF_SIZE)) >= 0)
+	{
+		if (f1_ret != f2_ret || !strncmp((char *)f1_buff, (char *)f2_buff, BUFF_SIZE))
+			return (FAILURE);
+		if (f1_ret == 0 && f2_ret == 0)
+			return (SUCCESS);
+	}
+	return (FAILURE);
+}
+
 static int	test(char const *s)
 {
-	int		ft_ret;
-	int		sys_ret;
-
-	int	save_out = dup(STDOUT_FILENO);
-	close(STDOUT_FILENO);
-//	printf("\n%s: ", g_fname);
-//	fflush(stdout);
-	ft_ret = ft_puts(s);
-//	printf("puts      : ");
-//	fflush(stdout);
-	sys_ret = puts(s);
+	int		fd_ref = open(s, O_RDWR);
+	int		fd_ft = open("test_cat", O_RDWR | O_TRUNC);
+	if (fd_ref < 0 || fd_ft < 0)
+		return (fperr("FD ERROR\n"));
+	int	save_out = dup2(fd_ft, STDOUT_FILENO);
+	ft_cat(fd_ref);
+	if (cmp_files(fd_ref, fd_ft))
+		return (fperr("file to check: |%s|\n", s));
+	close(fd_ref);
+	close(fd_ft);
 	dup2(save_out, STDOUT_FILENO);
-	if (sys_ret != ft_ret && (ft_ret == 0 || sys_ret == 0))
-		return (fperr("value: %s; _ft: |%d|; sys: |%d|\n",
-						s, ft_ret, sys_ret));
 	return (SUCCESS);
 }
 
 static int	test_0(void)
 {
-	return (test(NULL));
+	return (test("main.c"));
 }
 
 static int	test_1(void)
 {
-	return (test("Pas de retour ligne"));
+	return (test("Makefile"));
 }
 
 static int	test_2(void)
 {
-	return (test("ajout d'un retour a la ligne\n"));
+	return (test("/dev/null"));
 }
 
-int			test_puts(void)
+int			test_cat(void)
 {
 	int		(*f_tab[])(void) = {
 		test_0,
