@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 18:34:21 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/30 16:44:14 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@
 
 static int	test(char const *s)
 {
-	int		fd_ref;
+	int		fd_sys;
 	int		fd_ft;
 	int		save_out;
 
-	fd_ref = open(s, O_RDWR);
+	fd_sys = open(s, O_RDWR);
 	fd_ft = open("test_file_stdout", O_RDWR | O_TRUNC | O_CREAT, 0666);
-	if (fd_ref < 0 || fd_ft < 0)
-		return (fperr("FD ERROR (fd_ref=%d, fd_ft=%d)\n", fd_ref, fd_ft));
-	save_out = dup2(fd_ft, STDOUT_FILENO);
-	ft_cat(fd_ref);
+	if (fd_sys < 0 || fd_ft < 0)
+		return (fperr("FD ERROR (fd_sys=%d, fd_ft=%d)\n", fd_sys, fd_ft));
+	save_out = dup(STDOUT_FILENO);
+	dup2(fd_ft, STDOUT_FILENO);
+	ft_cat(fd_sys);
 	dup2(save_out, STDOUT_FILENO);
-	if (cmp_files(fd_ref, fd_ft))
+	if (cmp_files(fd_sys, fd_ft))
 		return (fperr("file to check: |%s|\n", s));
-	close(fd_ref);
+	close(fd_sys);
 	close(fd_ft);
 	return (SUCCESS);
 }
