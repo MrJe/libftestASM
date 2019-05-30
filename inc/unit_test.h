@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 12:57:45 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 16:39:35 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/30 18:02:08 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int					launch_tests(int (*unit_test[])(void));
 ** utils.c
 */
 int					cmp_files(int fd1, int fd2);
+int					cmp_file_str(int fd, char const *s);
 
 #endif

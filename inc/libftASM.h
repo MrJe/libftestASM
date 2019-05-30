@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 12:29:19 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 16:26:22 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/30 17:57:38 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int			ft_islower(int c);
 int			ft_isspace(int c);
 int			ft_putchar(int c);
 int			ft_abs(int i);
+int			ft_putstr(char const *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 16:37:47 by gpoblon           #+#    #+#             */
-/*   Updated: 2019/05/30 16:02:24 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/30 18:20:32 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,24 @@ int	cmp_files(int fd1, int fd2)
 			return (SUCCESS);
 		bzero(f1_buff, BUFF_SIZE + 1);
 		bzero(f2_buff, BUFF_SIZE + 1);
+	}
+	return (FAILURE);
+}
+
+int	cmp_file_str(int fd1, char const *s)
+{
+	ssize_t	f1_ret = 0;
+	char	f1_buff[BUFF_SIZE + 1];
+
+	lseek(fd1, 0, SEEK_SET);
+	bzero(f1_buff, BUFF_SIZE + 1);
+	while ((f1_ret = read(fd1, f1_buff, BUFF_SIZE)) >= 0)
+	{
+		if (f1_ret == 0)
+			return (SUCCESS);
+		if (strcmp((char *)f1_buff, s))
+			return (FAILURE);
+		bzero(f1_buff, BUFF_SIZE + 1);
 	}
 	return (FAILURE);
 }
