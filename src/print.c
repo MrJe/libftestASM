@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 17:09:33 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/27 13:32:07 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/31 16:08:32 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		print_usage(void)
 void		print_header(void)
 {
 	system("clear");
-	printf("%s/*\n** %sLibftASM - Unit Tests%s\n%s**\t%sauthor: jmichaud%s\n%s*/%s\n",
+	printf("%s/*\n** %sLibftASM - Unit Tests%s\n%s** %sauthors: jmichaud & gpoblon%s\n%s*/%s\n",
 			YELLOW, GREEN, RESET, YELLOW, GREY, RESET, YELLOW, RESET);
 }
 
