@@ -6,7 +6,7 @@
 /*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 17:58:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/30 18:21:57 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/31 12:17:53 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 static int	test(char const *s)
 {
-	int		ft_ret;
 	int		fd_ft;
 	int		save_out;
 
@@ -29,13 +28,14 @@ static int	test(char const *s)
 
 	save_out = dup(STDOUT_FILENO);
 	dup2(fd_ft, STDOUT_FILENO);
-	ft_ret = ft_putstr(s);
+	ft_putstr(s);
 	dup2(save_out, STDOUT_FILENO);
 
-	if (ft_ret == 0)
-		return (fperr("value: %s; _ft: |%d|\n", s, ft_ret));
 	if (cmp_file_str(fd_ft, s))
+	{
+		close(fd_ft);
 		return (fperr("return value is fine but char not well printed, see test_file_*\n"));
+	}
 	close(fd_ft);
 	return (SUCCESS);
 }

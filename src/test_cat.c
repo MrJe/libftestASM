@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/30 16:44:14 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/31 12:22:11 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,25 @@ static int	test(char const *s)
 	int		save_out;
 
 	fd_sys = open(s, O_RDWR);
+	if (fd_sys < 0)
+		return (fperr("FD ERROR (fd_sys=%d)\n", fd_sys));
 	fd_ft = open("test_file_stdout", O_RDWR | O_TRUNC | O_CREAT, 0666);
-	if (fd_sys < 0 || fd_ft < 0)
+	if (fd_ft < 0)
+	{
+		close(fd_sys);
 		return (fperr("FD ERROR (fd_sys=%d, fd_ft=%d)\n", fd_sys, fd_ft));
+	}
+
 	save_out = dup(STDOUT_FILENO);
 	dup2(fd_ft, STDOUT_FILENO);
 	ft_cat(fd_sys);
 	dup2(save_out, STDOUT_FILENO);
 	if (cmp_files(fd_sys, fd_ft))
+	{
+		close(fd_ft);
+		close(fd_sys);
 		return (fperr("file to check: |%s|\n", s));
+	}
 	close(fd_sys);
 	close(fd_ft);
 	return (SUCCESS);
