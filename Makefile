@@ -6,7 +6,7 @@
 #    By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/18 18:09:15 by jmichaud          #+#    #+#              #
-#    Updated: 2019/05/30 17:57:18 by jmichaud         ###   ########.fr        #
+#    Updated: 2019/05/31 12:59:47 by jmichaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,10 @@ SRC_NAME		=	\
 					test_strdup.c		\
 					test_cat.c			\
 					test_putchar.c		\
+					test_putchar_fd.c	\
 					test_abs.c			\
 					test_putstr.c		\
+					test_putstr_fd.c	\
 					main.c
 
 ################################################################################

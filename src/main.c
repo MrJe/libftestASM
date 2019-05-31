@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:54 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/30 18:05:09 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/31 13:00:33 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,29 @@ static int		set_debug_file(void)
 static void		launch_real_test(void)
 {
 	t_unit_test const	f_tab[] = {
-		{"ft_bzero  ", &test_bzero},
-		{"ft_strcat ", &test_strcat},
-		{"ft_isalnum", &test_isalnum},
-		{"ft_isalpha", &test_isalpha},
-		{"ft_isascii", &test_isascii},
-		{"ft_isprint", &test_isprint},
-		{"ft_isdigit", &test_isdigit},
-		{"ft_toupper", &test_toupper},
-		{"ft_tolower", &test_tolower},
-		{"ft_puts   ", &test_puts},
-		{"ft_strlen ", &test_strlen},
-		{"ft_memset ", &test_memset},
-		{"ft_memcpy ", &test_memcpy},
-		{"ft_strdup ", &test_strdup},
-		{"ft_cat    ", &test_cat},
-		{"ft_isspace", &test_isspace},
-		{"ft_islower", &test_islower},
-		{"ft_isupper", &test_isupper},
-		{"ft_putchar", &test_putchar},
-		{"ft_abs    ", &test_abs},
-		{"ft_putstr ", &test_putstr},
+		{"ft_bzero     ", &test_bzero},
+		{"ft_strcat    ", &test_strcat},
+		{"ft_isalnum   ", &test_isalnum},
+		{"ft_isalpha   ", &test_isalpha},
+		{"ft_isascii   ", &test_isascii},
+		{"ft_isprint   ", &test_isprint},
+		{"ft_isdigit   ", &test_isdigit},
+		{"ft_toupper   ", &test_toupper},
+		{"ft_tolower   ", &test_tolower},
+		{"ft_puts      ", &test_puts},
+		{"ft_strlen    ", &test_strlen},
+		{"ft_memset    ", &test_memset},
+		{"ft_memcpy    ", &test_memcpy},
+		{"ft_strdup    ", &test_strdup},
+		{"ft_cat       ", &test_cat},
+		{"ft_isspace   ", &test_isspace},
+		{"ft_islower   ", &test_islower},
+		{"ft_isupper   ", &test_isupper},
+		{"ft_putchar   ", &test_putchar},
+		{"ft_putchar_fd", &test_putchar_fd},
+		{"ft_abs       ", &test_abs},
+		{"ft_putstr    ", &test_putstr},
+		{"ft_putstr_fd ", &test_putstr_fd},
 		{0, 0}
 	};
 

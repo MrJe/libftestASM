@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_putchar.c                                     :+:      :+:    :+:   */
+/*   test_putchar_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/31 12:50:03 by jmichaud         ###   ########.fr       */
+/*   Created: 2019/05/31 13:00:53 by jmichaud          #+#    #+#             */
+/*   Updated: 2019/05/31 13:11:12 by jmichaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,20 @@ static int	test(int c)
 	int		fd_ft;
 	int		save_out;
 
-	fd_sys = open("test_file_sys", O_RDWR | O_TRUNC | O_CREAT, 0666);
-	if (fd_sys < 0)
-		return (fperr("FD ERROR (fd_sys=%d)\n", fd_sys));
 	fd_ft = open("test_file_stdout", O_RDWR | O_TRUNC | O_CREAT, 0666);
 	if (fd_ft < 0)
-	{
-		close(fd_sys);
-		return (fperr("FD ERROR (fd_sys=%d, fd_ft=%d)\n", fd_sys, fd_ft));
-	}
+		return (fperr("FD ERROR (fd_ft=%d)\n", fd_ft));
 
-	save_out = dup(STDOUT_FILENO);
-	dup2(fd_ft, STDOUT_FILENO);
-	ft_ret = ft_putchar(c);
-	dup2(fd_sys, STDOUT_FILENO);
-	sys_ret = putchar(c);
-	fflush(NULL);
-	dup2(save_out, STDOUT_FILENO);
-	if (sys_ret != ft_ret)
+	ft_ret = ft_putchar_fd(c, fd_ft);
+
+	lseek(fd_ft, 0, SEEK_SET);
+	unsigned char		f1_buff[BUFF_SIZE + 1] = { 0 };
+	int					f1_ret = read(fd_ft, f1_buff, BUFF_SIZE);
+	if (f1_ret >= 0 && f1_buff[0] != (unsigned char)c)
 	{
 		close(fd_ft);
-		close(fd_sys);
-		return (fperr("value: %d; _ft: |%d|; sys: |%d|\n", c, ft_ret, sys_ret));
+		return (fperr("%c not well printed, see test_file_*\n", c));
 	}
-	if (cmp_files(fd_sys, fd_ft))
-	{
-		close(fd_ft);
-		close(fd_sys);
-		return (fperr("return value is fine but char not well printed, see test_file_*\n"));
-	}
-	close(fd_sys);
 	close(fd_ft);
 	return (SUCCESS);
 }
@@ -88,7 +72,7 @@ static int	test_d(void)
 	return (test(256));
 }
 
-int			test_putchar(void)
+int			test_putchar_fd(void)
 {
 	int		(*f_tab[])(void) = {
 		test_a,
