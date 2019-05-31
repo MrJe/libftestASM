@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/29 12:32:48 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/31 19:04:34 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ static int	test(char *s1)
 	char	*ft_ret;
 
 	ft_ret = ft_strdup(s1);
-	if (ft_ret && strcmp(ft_ret, s1) != 0)
+	if (strcmp(ft_ret, s1) != 0)
 	{
-		free(ft_ret);
+		if (ft_ret)
+			free(ft_ret);
 		return(fperr("value: %s; _ft: %s\n",
 					s1, ft_ret));
 	}

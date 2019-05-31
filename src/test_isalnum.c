@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/23 13:14:30 by gpoblon          ###   ########.fr       */
+/*   Updated: 2019/05/31 18:12:44 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	test_a(void)
 	int		ret;
 
 	ret = SUCCESS;
-	i = -11;
-	while (++i < 257)
+	i = -25998;
+	while (++i < 257870)
 	{
 			if(test(i) == FAILURE)
 				ret = FAILURE;

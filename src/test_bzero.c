@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_bzero.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmichaud <jmichaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/22 16:51:16 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/31 18:32:02 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,16 @@ static int	test_d(void)
 	return (test(TAB_SIZE - 1));
 }
 
+static int	test_e(void)
+{
+	return (test(1));
+}
+
+static int	test_f(void)
+{
+	return (test(3));
+}
+
 int			test_bzero(void)
 {
 	int		(*f_tab[])(void) = {
@@ -67,6 +77,8 @@ int			test_bzero(void)
 		test_b,
 		test_c,
 		test_d,
+		test_e,
+		test_f,
 		0
 	};
 

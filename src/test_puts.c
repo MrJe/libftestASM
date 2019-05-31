@@ -6,7 +6,7 @@
 /*   By: gpoblon <gpoblon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:50:26 by jmichaud          #+#    #+#             */
-/*   Updated: 2019/05/31 12:19:39 by jmichaud         ###   ########.fr       */
+/*   Updated: 2019/05/31 19:04:46 by gpoblon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,18 @@ static int	test_c(void)
 	return (test("ajout d'un retour a la ligne\n"));
 }
 
+static int	test_d(void)
+{
+	return (test(""));
+}
+
 int			test_puts(void)
 {
 	int		(*f_tab[])(void) = {
 		test_a,
 		test_b,
 		test_c,
+		test_d,
 		0
 	};
 
